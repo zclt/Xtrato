@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Xtrato.Web.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<XtratoDbContext>(options => 
+    options.UseInMemoryDatabase("xtratodb"));
 
 var app = builder.Build();
 
